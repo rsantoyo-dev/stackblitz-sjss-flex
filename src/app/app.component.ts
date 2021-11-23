@@ -51,13 +51,14 @@ export class AppComponent implements OnInit {
   }
 
 
-  changed() {    
+  changed() {        
     this.sjFlexDiv = {...this.sjFlexDiv, flexDirection: this.flexDirectionSelected };
     if(this.flexDirectionSelected === ""){
       delete this.sjFlexDiv.flexDirection
     }
     console.log(this.sjFlexDiv)
   }
+  
   changedWrap() {    
     this.sjFlexDiv = {...this.sjFlexDiv, flexWrap: this.flexWrapSelected };
     if(this.flexWrapSelected === ""){
