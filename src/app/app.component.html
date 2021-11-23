@@ -17,19 +17,18 @@
   </div>
 </paper>
 
-<select (change)="changed()" [(ngModel)]="flexDirectionSelected">
-  <option [ngValue]="''">Select an Option</option>
-  <option *ngFor="let option of flexDirection" [ngValue]="option.value">
-    {{ option.name }}
-  </option>
-</select>
 
-<select (change)="changedWrap()" [(ngModel)]="flexWrapSelected">
+<!--<select (change)="changedWrap()" [(ngModel)]="flexWrapSelected">
 <option [ngValue]="''">Select an Option</option>
 <option *ngFor="let option of flexWrap" [ngValue]="option.value">
   {{ option.name }}
 </option>
-</select>
+</select>-->
 
-<sjss-selector [options]="flexDirection2" (onOptionChange)="optionChange($event)">
+<sjss-selector [options]="flexDirection" [sJssProperty]="'flexDirection'" (onOptionChange)="optionChange($event)">
 </sjss-selector>
+
+<sjss-selector [options]="flexWrap" [sJssProperty]="'flexWrap'" (onOptionChange)="optionChange($event)">
+</sjss-selector>
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 import { SJss } from 'super-jss/lib/super-jss-model';
+import ISelectorResponse from './selector/selector.component';
 
 @Component({
   selector: 'my-app',
@@ -13,22 +14,8 @@ export class AppComponent implements OnInit {
   sjTitle: SJss = { paddingBottom: '0.5rem' };
   cells: Array<number> = [1, 2, 3];
 
-  flexDirectionSelected: string;
-  flexDirection = [
-    { value: 'row', name: 'row' },
-    { value: 'row-reverse', name: 'row-reverse' },
-    { value: 'column', name: 'column' },
-    { value: 'column-reverse', name: 'column-reverse' },
-  ];
-
-  flexDirection2 = ['', 'row', 'row-reverse', 'column', 'column-reverse'];
-
-  flexWrapSelected: string;
-  flexWrap = [
-    { value: 'nowrap', name: 'nowrap ' },
-    { value: 'wrap', name: 'wrap' },
-    { value: 'wrap-reverse', name: 'wrap-reverse' },
-  ];
+  flexDirection = ['', 'row', 'row-reverse', 'column', 'column-reverse'];
+  flexWrap = ['', 'nowrap', 'wrap', 'wrap-reverse'];
 
   constructor() {}
 
@@ -46,27 +33,19 @@ export class AppComponent implements OnInit {
     }
   }
 
-  optionChange(selected: string) {
-    'eeee';
-    console.log(selected);
-  }
-
-  changed() {
-    this.sjFlexDiv = {
-      ...this.sjFlexDiv,
-      flexDirection: this.flexDirectionSelected,
-    };
-    if (this.flexDirectionSelected === '') {
-      delete this.sjFlexDiv.flexDirection;
+  optionChange(selected: ISelectorResponse) {
+    this.sjFlexDiv = { ...this.sjFlexDiv, ...selected.sjss };
+    if (selected.sjss[selected.sJssProperty] === '') {
+      delete this.sjFlexDiv[selected.sJssProperty];
     }
     console.log(this.sjFlexDiv);
   }
 
-  changedWrap() {
+  /*changedWrap() {
     this.sjFlexDiv = { ...this.sjFlexDiv, flexWrap: this.flexWrapSelected };
     if (this.flexWrapSelected === '') {
       delete this.sjFlexDiv.flexWrap;
     }
     console.log(this.sjFlexDiv);
-  }
+  }*/
 }

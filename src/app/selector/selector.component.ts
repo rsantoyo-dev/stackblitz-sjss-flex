@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-export default interface ISelectorComponent {
-  value: string;
-  name: string;
+import { SJss } from 'super-jss/lib/super-jss-model';
+export default interface ISelectorResponse {
+  sJssProperty: string;
+  sjss: SJss;
 }
 
 @Component({
@@ -10,8 +11,9 @@ export default interface ISelectorComponent {
 })
 export class SelectorComponent implements OnInit {
   @Input() options = [];
+  @Input() sJssProperty = '';
 
-  @Output() onOptionChange = new EventEmitter<string>();
+  @Output() onOptionChange = new EventEmitter<ISelectorResponse>();
 
   optionSelected: string;
 
@@ -20,6 +22,7 @@ export class SelectorComponent implements OnInit {
   ngOnInit() {}
 
   changed() {
-    this.onOptionChange.emit(this.optionSelected);
+    const sjss: SJss = { [this.sJssProperty]: this.optionSelected };
+    this.onOptionChange.emit({ sJssProperty: this.sJssProperty, sjss: sjss });
   }
 }
