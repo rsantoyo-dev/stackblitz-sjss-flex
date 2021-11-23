@@ -17,18 +17,11 @@
   </div>
 </paper>
 
-
-<!--<select (change)="changedWrap()" [(ngModel)]="flexWrapSelected">
-<option [ngValue]="''">Select an Option</option>
-<option *ngFor="let option of flexWrap" [ngValue]="option.value">
-  {{ option.name }}
-</option>
-</select>-->
-
-<sjss-selector [options]="flexDirection" [sJssProperty]="'flexDirection'" (onOptionChange)="optionChange($event)">
+<div *ngFor="let flexSelector of flexSelectorsList; let i = index">
+  {{flexSelector.property}} 
+  <sjss-selector [options]="flexSelector.options" [sJssProperty]="flexSelector.property" (onOptionChange)="optionChange($event)">
 </sjss-selector>
 
-<sjss-selector [options]="flexWrap" [sJssProperty]="'flexWrap'" (onOptionChange)="optionChange($event)">
-</sjss-selector>
+</div>
 
 

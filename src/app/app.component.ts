@@ -14,6 +14,12 @@ export class AppComponent implements OnInit {
   sjTitle: SJss = { paddingBottom: '0.5rem' };
   cells: Array<number> = [1, 2, 3];
 
+  flexSelectorsList:Array<{property:string, options:Array<string>}> = [
+    {property:"flexDirection", options: ['', 'row', 'row-reverse', 'column', 'column-reverse']},
+    {property:"flexWrap", options: ['', 'nowrap', 'wrap', 'wrap-reverse']}
+   
+  ]
+
   flexDirection = ['', 'row', 'row-reverse', 'column', 'column-reverse'];
   flexWrap = ['', 'nowrap', 'wrap', 'wrap-reverse'];
 
