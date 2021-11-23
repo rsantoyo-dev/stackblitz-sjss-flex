@@ -1,12 +1,11 @@
-import { Component, VERSION } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SJss } from 'super-jss/lib/super-jss-model';
 
 @Component({
-  selector: 'box',
-  templateUrl: './box.component.html',
+  selector: 'paper',
+  templateUrl: './paper.component.html'
 })
-
-export class BoxComponent {
+export class PaperComponent implements OnInit {
 
   sjRoot: SJss = {
     backgroundColor: 'rgb(22 175 161)',
@@ -17,5 +16,10 @@ export class BoxComponent {
     margin: '0.25rem',
     borderRadius: '0.25rem'
   };
-  
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }
