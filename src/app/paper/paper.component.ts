@@ -9,7 +9,8 @@ import { ITheme, SJss } from 'super-jss/lib/super-jss-model';
 export class PaperComponent implements OnInit {
 
   sjRoot: SJss;
-  @Input() bgColor:string
+  @Input() bgColor:string;
+  @Input() justifyContent:string
 
   theme:ITheme
   constructor(private js:SuperJssService) {
@@ -22,7 +23,7 @@ export class PaperComponent implements OnInit {
       backgroundColor: this.bgColor,
       color: this.theme.palette.primary.contrastText,
       display: 'flex',
-      justifyContent: 'center',
+      justifyContent: this.justifyContent,
       padding: this.theme.spacing(2),
       margin:  this.theme.spacing(1),
       borderRadius: this.theme.spacing(1)

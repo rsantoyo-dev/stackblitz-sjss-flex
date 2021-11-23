@@ -1,10 +1,25 @@
 <h6 [sJss]="sjTitle">
   display flex
 </h6>
-<paper [bgColor]="'red'">  
-  <paper>1</paper>
-  <paper>2</paper>
-  <paper>3</paper>
-  <paper>4</paper>
-  <paper>5</paper>
+<paper [bgColor]="'red'"> 
+  <div [sJss]="sjFlexDiv"> 
+    <paper>1</paper>
+    <paper>2</paper>
+    <paper>3</paper>
+    <paper>4</paper>
+    <paper>5</paper>
+  </div>
+  
 </paper>
+
+
+<select 
+      (change)="changed()" 
+      [(ngModel)]="selectedOption" 
+     >
+       <option 
+        *ngFor="let option of flexDirection"
+        [ngValue]="option.value"
+       >{{option.name}}</option>
+    </select>
+
