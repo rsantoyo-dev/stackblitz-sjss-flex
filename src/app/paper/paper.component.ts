@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SJss } from 'super-jss/lib/super-jss-model';
+import { SuperJssService } from 'super-jss';
+import { ITheme, SJss } from 'super-jss/lib/super-jss-model';
 
 @Component({
   selector: 'paper',
@@ -8,20 +9,23 @@ import { SJss } from 'super-jss/lib/super-jss-model';
 export class PaperComponent implements OnInit {
 
   sjRoot: SJss;
-  @Input() bgColor:string = 'rgb(22 175 161)'
+  @Input() bgColor:string
 
-
-  constructor() { }
+  theme:ITheme
+  constructor(private js:SuperJssService) {
+    this.theme = js.theme;
+    this.bgColor = this.theme.palette.primary.main
+  }
 
   ngOnInit() {
     this.sjRoot = {
       backgroundColor: this.bgColor,
-      color: 'white',
+      color: this.theme.palette.primary.contrastText,
       display: 'flex',
       justifyContent: 'center',
-      padding: '1rem',
-      margin: '0.25rem',
-      borderRadius: '0.25rem'
+      padding: this.theme.spacing(2),
+      margin:  this.theme.spacing(1),
+      borderRadius: this.theme.spacing(1)
     };
   }
 
