@@ -12,8 +12,8 @@ export class AppComponent implements OnInit {
   sjTitle: SJss = { paddingBottom: '0.5rem' };
 
   flexDirection = [
-    { value: 'flex', name: 'flex' },
-    { value: 'flex-reverse', name: 'flex-reverse' },
+    { value: 'row', name: 'row' },
+    { value: 'row-reverse', name: 'row-reverse' },
     { value: 'column', name: 'column' },
     { value: 'column-reverse', name: 'column-reverse' },
   ];
