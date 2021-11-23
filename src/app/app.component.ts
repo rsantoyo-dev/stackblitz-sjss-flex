@@ -11,9 +11,6 @@ export class AppComponent  {
 
   sjTitle:SJss = {paddingBottom:'0.5rem'};
 
-  sjFlexContainer:SJss = { 
-    display: 'flex', 
-    backgroundColor: 'lightgrey' 
-  };
+  
 
 }
