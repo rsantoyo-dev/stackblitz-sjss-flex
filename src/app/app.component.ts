@@ -11,13 +11,16 @@ export class AppComponent implements OnInit {
 
   sjTitle: SJss = { paddingBottom: '0.5rem' };
 
+  cells:Array<number>=[1,2,3]
+
   flexDirection = [
     { value: 'row', name: 'row' },
     { value: 'row-reverse', name: 'row-reverse' },
     { value: 'column', name: 'column' },
     { value: 'column-reverse', name: 'column-reverse' },
   ];
-  selectedOption:string;
+
+  flexDirectionSelected:string;
 
   sjFlexDiv:SJss
 
@@ -28,16 +31,24 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.sjFlexDiv = {
       display: 'flex',
-      flexDirection: this.selectedOption
+      flexWrap: 'wrap'
     };
   }
 
+  numberChange(e:any){
+    this.cells = []
+    for(let i=1; i<=e.target.value; i++){
+      this.cells.push(i)
+    }
+  
+  }
 
-  changed() {
-    console.log(this.selectedOption);
-    this.sjFlexDiv = {
-      display: 'flex',
-      flexDirection: this.selectedOption
-    };
+
+  changed() {    
+    this.sjFlexDiv = {...this.sjFlexDiv, flexDirection: this.flexDirectionSelected };
+    if(this.flexDirectionSelected === ""){
+      delete this.sjFlexDiv.flexDirection
+    }
+    console.log(this.sjFlexDiv)
   }
 }
