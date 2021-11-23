@@ -9,10 +9,11 @@ import { SJss } from 'super-jss/lib/super-jss-model';
 export class AppComponent implements OnInit {
   name = 'Angular ' + VERSION.major;
 
+  sjFlexDiv:SJss;
   sjTitle: SJss = { paddingBottom: '0.5rem' };
-
   cells:Array<number>=[1,2,3]
 
+  flexDirectionSelected:string;
   flexDirection = [
     { value: 'row', name: 'row' },
     { value: 'row-reverse', name: 'row-reverse' },
@@ -20,9 +21,16 @@ export class AppComponent implements OnInit {
     { value: 'column-reverse', name: 'column-reverse' },
   ];
 
-  flexDirectionSelected:string;
+  flexWrapSelected:string;
+  flexWrap = [
+    { value: 'nowrap', name: 'nowrap ' },
+    { value: 'wrap', name: 'wrap' },
+    { value: 'wrap-reverse', name: 'wrap-reverse' },
+  ];
 
-  sjFlexDiv:SJss
+  
+
+ 
 
   constructor(){
 
@@ -39,8 +47,7 @@ export class AppComponent implements OnInit {
     this.cells = []
     for(let i=1; i<=e.target.value; i++){
       this.cells.push(i)
-    }
-  
+    }  
   }
 
 
@@ -48,6 +55,13 @@ export class AppComponent implements OnInit {
     this.sjFlexDiv = {...this.sjFlexDiv, flexDirection: this.flexDirectionSelected };
     if(this.flexDirectionSelected === ""){
       delete this.sjFlexDiv.flexDirection
+    }
+    console.log(this.sjFlexDiv)
+  }
+  changedWrap() {    
+    this.sjFlexDiv = {...this.sjFlexDiv, flexWrap: this.flexWrapSelected };
+    if(this.flexWrapSelected === ""){
+      delete this.sjFlexDiv.flexWrap
     }
     console.log(this.sjFlexDiv)
   }

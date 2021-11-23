@@ -23,3 +23,10 @@
     {{ option.name }}
   </option>
 </select>
+
+<select (change)="changedWrap()" [(ngModel)]="flexWrapSelected">
+<option [ngValue]="''">Select an Option</option>
+<option *ngFor="let option of flexWrap" [ngValue]="option.value">
+  {{ option.name }}
+</option>
+</select>
