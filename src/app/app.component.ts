@@ -21,8 +21,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.sjFlexDiv = {
-      display: 'flex',
-      flexWrap: 'wrap',
+      display: 'flex'
     };
   }
 
@@ -41,11 +40,4 @@ export class AppComponent implements OnInit {
     console.log(this.sjFlexDiv);
   }
 
-  /*changedWrap() {
-    this.sjFlexDiv = { ...this.sjFlexDiv, flexWrap: this.flexWrapSelected };
-    if (this.flexWrapSelected === '') {
-      delete this.sjFlexDiv.flexWrap;
-    }
-    console.log(this.sjFlexDiv);
-  }*/
 }
