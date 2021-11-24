@@ -20,14 +20,15 @@ export class AppComponent implements OnInit {
    
   ]
 
-  flexDirection = ['', 'row', 'row-reverse', 'column', 'column-reverse'];
-  flexWrap = ['', 'nowrap', 'wrap', 'wrap-reverse'];
+
 
   constructor() {}
 
   ngOnInit() {
     this.sjFlexDiv = {
-      display: 'flex'
+      display: 'flex',
+      height:'200px',
+      width:'100%'
     };
   }
 
