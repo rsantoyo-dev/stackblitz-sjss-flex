@@ -1,27 +1,35 @@
 <h6 [sJss]="sjTitle">display flex</h6>
-<input
-  type="number"
-  id="quantity"
-  name="quantity"
-  value="3"
-  min="1"
-  max="24"
-  (change)="numberChange($event)"
-/>
+<div [sJss]="{ display: 'flex' }">
+  <p [sJss]>Number of elements:</p>
+  <input
+    type="number"
+    id="quantity"
+    name="quantity"
+    value="3"
+    min="1"
+    max="24"
+    (change)="numberChange($event)"
+  />
+</div>
 
 <paper [bgColor]="'lightgrey'">
   <div [sJss]="sjFlexDiv">
-    <paper *ngFor="let number of cells">
-      item {{ number }}
-    </paper>
+    <paper *ngFor="let number of cells"> item {{ number }} </paper>
   </div>
 </paper>
+<paper [bgColor]="'lightgrey'">
+<p [sJss]="{ color: 'black' }">
+  sJss={{ codeMessage }}
+</p>
+</paper>
+
 
 <div *ngFor="let flexSelector of flexSelectorsList; let i = index">
-  {{flexSelector.property}} 
-  <sjss-selector [options]="flexSelector.options" [sJssProperty]="flexSelector.property" (onOptionChange)="optionChange($event)">
-</sjss-selector>
-
+  {{ flexSelector.property }}
+  <sjss-selector
+    [options]="flexSelector.options"
+    [sJssProperty]="flexSelector.property"
+    (onOptionChange)="optionChange($event)"
+  >
+  </sjss-selector>
 </div>
-
-

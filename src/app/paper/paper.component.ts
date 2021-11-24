@@ -11,6 +11,7 @@ export class PaperComponent implements OnInit {
   sjRoot: SJss;
   @Input() bgColor:string;
   @Input() justifyContent:string
+  @Input() flexDirection:string
 
   theme:ITheme
   constructor(private js:SuperJssService) {
@@ -24,6 +25,7 @@ export class PaperComponent implements OnInit {
       color: this.theme.palette.primary.contrastText,
       display: 'flex',
       justifyContent: this.justifyContent,
+      flexDirection: this.flexDirection,
       padding: this.theme.spacing(2),
       margin:  this.theme.spacing(1),
       borderRadius: this.theme.spacing(1)
