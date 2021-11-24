@@ -1,5 +1,6 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 import { SJss } from 'super-jss/lib/super-jss-model';
+import { flexSelectorsList } from './flexSelectorsData';
 import ISelectorResponse from './selector/selector.component';
 
 @Component({
@@ -15,42 +16,7 @@ export class AppComponent implements OnInit {
   sjTitle: SJss = { paddingBottom: '0.5rem' };
   cells: Array<number> = [1, 2, 3];
 
-  flexSelectorsList: Array<{ property: string; options: Array<string> }> = [
-    {
-      property: 'flexDirection',
-      options: ['', 'row', 'row-reverse', 'column', 'column-reverse'],
-    },
-    { property: 'flexWrap', options: ['', 'nowrap', 'wrap', 'wrap-reverse'] },
-    {
-      property: 'justifyContent',
-      options: [
-        '',
-        'flex-start',
-        'flex-end',
-        'center',
-        'space-between',
-        'space-around',
-        'space-evenly',
-      ],
-    },
-    {
-      property: 'alignItems',
-      options: ['', 'stretch', 'flex-start', 'flex-end', 'center', 'baseline'],
-    },
-    {
-      property: 'alignContent',
-      options: [
-        '',
-        'flex-start',
-        'flex-end ',
-        'center',
-        'space-between',
-        'space-around',
-        'space-evenly',
-        'stretch',
-      ],
-    },
-  ];
+  flexSelectorsList: Array<{ property: string; options: Array<string> }> = flexSelectorsList
 
   constructor() {}
 
