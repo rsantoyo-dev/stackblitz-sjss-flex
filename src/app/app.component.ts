@@ -37,9 +37,7 @@ export class AppComponent implements OnInit {
 
   optionChange(selected: ISelectorResponse) {
     this.sjFlexDiv = { ...this.sjFlexDiv, ...selected.sjss };
-    /*if (selected.sjss[selected.sJssProperty] === '') {
-      delete this.sjFlexDiv[selected.sJssProperty];
-    }*/
+
     this.codeMessage = JSON.stringify(this.sjFlexDiv);
   }
 }
