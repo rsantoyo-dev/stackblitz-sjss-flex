@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { SJss } from 'super-jss/lib/super-jss-model';
+import { IBreakingStyle, SJss } from 'super-jss/lib/super-jss-model';
 export  interface ISelectorResponse {
   sJssProperty: string;
   sjss: SJss;
@@ -37,8 +37,20 @@ export class SelectorComponent implements OnInit {
 
 
   changed(sJssProperty:ISjssProperty) {
-    console.log(this.optionSelected)
-    /*const sjss: SJss = { [this.sJssProperty]: this.optionSelected };
-    this.onOptionChange.emit({ sJssProperty: this.sJssProperty, sjss: sjss });*/
+    
+    let breakingStyle: IBreakingStyle ={}
+
+    this.sjssPropertyByBreakpoint.forEach(x=>{     
+      if(this.optionSelected[x.breakpoint]){
+        breakingStyle = {...breakingStyle, [x.breakpoint]: this.optionSelected[x.breakpoint]}
+      }     
+    })
+    let sjss: SJss = { [this.sJssProperty]: breakingStyle };
+    if(Object.keys(breakingStyle).length === 1 && Object.keys(breakingStyle)[0]==='xs')
+    {
+      sjss = { [this.sJssProperty]: this.optionSelected['xs'] }; 
+    }
+    this.onOptionChange.emit({ sJssProperty: this.sJssProperty, sjss: sjss })
+
   }
 }
