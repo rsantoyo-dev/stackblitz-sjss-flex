@@ -1,8 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SJss } from 'super-jss/lib/super-jss-model';
-export default interface ISelectorResponse {
+export  interface ISelectorResponse {
   sJssProperty: string;
   sjss: SJss;
+}
+
+export  interface ISjssProperty {
+  breakpoint: string;
+  value: string;
 }
 
 @Component({
@@ -17,9 +22,19 @@ export class SelectorComponent implements OnInit {
 
   optionSelected: string;
 
+  sjssPropertyByBreakpoint: Array<ISjssProperty> = [
+    {breakpoint:'xs', value:''},
+    {breakpoint:'sm', value:''},
+    {breakpoint:'md', value:''},
+    {breakpoint:'lg', value:''},
+    {breakpoint:'xl', value:''}
+  ]
+
   constructor() {}
 
   ngOnInit() {}
+
+
 
   changed() {
     const sjss: SJss = { [this.sJssProperty]: this.optionSelected };

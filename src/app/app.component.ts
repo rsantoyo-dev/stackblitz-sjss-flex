@@ -1,7 +1,7 @@
 import { Component, OnInit, VERSION } from '@angular/core';
 import { SJss } from 'super-jss/lib/super-jss-model';
 import { flexSelectorsList } from './flexSelectorsData';
-import ISelectorResponse from './selector/selector.component';
+import { ISelectorResponse } from './selector/selector.component';
 
 @Component({
   selector: 'my-app',
