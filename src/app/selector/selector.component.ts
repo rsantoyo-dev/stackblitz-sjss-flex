@@ -20,7 +20,7 @@ export class SelectorComponent implements OnInit {
 
   @Output() onOptionChange = new EventEmitter<ISelectorResponse>();
 
-  optionSelected: string;
+  optionSelected: Map<string, string> = new Map<string, string>();;
 
   sjssPropertyByBreakpoint: Array<ISjssProperty> = [
     {breakpoint:'xs', value:''},
@@ -36,8 +36,9 @@ export class SelectorComponent implements OnInit {
 
 
 
-  changed() {
-    const sjss: SJss = { [this.sJssProperty]: this.optionSelected };
-    this.onOptionChange.emit({ sJssProperty: this.sJssProperty, sjss: sjss });
+  changed(sJssProperty:ISjssProperty) {
+    console.log(this.optionSelected)
+    /*const sjss: SJss = { [this.sJssProperty]: this.optionSelected };
+    this.onOptionChange.emit({ sJssProperty: this.sJssProperty, sjss: sjss });*/
   }
 }
