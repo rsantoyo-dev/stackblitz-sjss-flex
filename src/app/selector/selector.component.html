@@ -1,5 +1,8 @@
-<select (change)="changed()" [(ngModel)]="optionSelected">
-  <option *ngFor="let option of options" [ngValue]="option">
-    {{ option }}
-  </option>
-</select>
+<div>
+  <select (change)="changed()" [(ngModel)]="optionSelected">
+    <option *ngFor="let option of options" [ngValue]="option">
+      {{ option }}
+    </option>
+  </select>
+  
+</div>
