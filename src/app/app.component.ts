@@ -16,7 +16,8 @@ export class AppComponent implements OnInit {
   sjTitle: SJss = { paddingBottom: '0.5rem' };
   cells: Array<number> = [1, 2, 3];
 
-  flexSelectorsList: Array<{ property: string; options: Array<string> }> = flexSelectorsList
+  flexSelectorsList: Array<{ property: string; options: Array<string> }> =
+    flexSelectorsList;
 
   constructor() {}
 
