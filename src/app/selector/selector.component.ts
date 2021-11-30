@@ -50,6 +50,7 @@ export class SelectorComponent implements OnInit {
     {
       sjss = { [this.sJssProperty]: this.optionSelected['xs'] }; 
     }
+
     this.onOptionChange.emit({ sJssProperty: this.sJssProperty, sjss: sjss })
 
   }

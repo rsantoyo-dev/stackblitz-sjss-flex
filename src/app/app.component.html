@@ -25,11 +25,15 @@
 
 
 <div *ngFor="let flexSelector of flexSelectorsList; let i = index">
-  {{ flexSelector.property }}
-  <sjss-selector
-    [options]="flexSelector.options"
-    [sJssProperty]="flexSelector.property"
-    (onOptionChange)="optionChange($event)"
-  >
-  </sjss-selector>
+  <h6 [sJss]>{{ flexSelector.property }}</h6>
+    
+  <div  [sJss]="{padding:'0.5rem'}">
+    <sjss-selector
+      [options]="flexSelector.options"
+      [sJssProperty]="flexSelector.property"
+      (onOptionChange)="optionChange($event)"
+    >
+    </sjss-selector>
+  </div>
+  
 </div>

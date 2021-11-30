@@ -1,18 +1,14 @@
-<!--<div>
-  <select (change)="changed()" [(ngModel)]="optionSelected">
-    <option *ngFor="let option of options" [ngValue]="option">
-      {{ option }}
-    </option>
-  </select>
+
+<div [sJss]="{display:'flex' , gap:'20px'}">
+  <div *ngFor="let sjssProperty of sjssPropertyByBreakpoint; let i = index" [sJss]="{display:'flex'}">
+  <p [sJss]="{width:'1.8rem'}">{{sjssProperty.breakpoint}}:</p>
   
-</div>-->
-
-<div *ngFor="let sjssProperty of sjssPropertyByBreakpoint; let i = index">
-  {{sjssProperty.breakpoint}}
-  <select (change)="changed(sjssProperty)" [(ngModel)]="optionSelected[sjssProperty.breakpoint]">
+  <select (change)="changed(sjssProperty)" [(ngModel)]="optionSelected[sjssProperty.breakpoint]" [sJss]="{width:'7rem'}">
     <option *ngFor="let option of options" [ngValue]="option">
       {{ option }}
     </option>
   </select>
 
+  </div>
 </div>
+
