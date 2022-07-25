@@ -1,3 +1,5 @@
+<a [sJss]="sjTitle" href="https://www.npmjs.com/package/super-jss">SUPER JSS LIBRARY</a>
+<hr>
 <h6 [sJss]="sjTitle">display flex</h6>
 <div [sJss]="{ display: 'flex' }">
   <p [sJss]>Number of elements:</p>
@@ -18,16 +20,13 @@
   </div>
 </paper>
 <paper [bgColor]="'lightgrey'">
-<p [sJss]="{ color: 'black' }">
-  sJss={{ codeMessage }}
-</p>
+  <p [sJss]="{ color: 'black' }">sJss={{ codeMessage }}</p>
 </paper>
-
 
 <div *ngFor="let flexSelector of flexSelectorsList; let i = index">
   <h6 [sJss]>{{ flexSelector.property }}</h6>
-    
-  <div  [sJss]="{padding:'0.5rem'}">
+
+  <div [sJss]="{ padding: '0.5rem' }">
     <sjss-selector
       [options]="flexSelector.options"
       [sJssProperty]="flexSelector.property"
@@ -35,5 +34,4 @@
     >
     </sjss-selector>
   </div>
-  
 </div>
