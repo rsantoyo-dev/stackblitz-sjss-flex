@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SuperJssService } from 'super-jss';
-import { ITheme, SJss } from 'super-jss/lib/super-jss-model';
+import { SJssTheme, SJss } from 'super-jss/lib/super-jss-model';
 
 @Component({
   selector: 'paper',
@@ -13,7 +13,7 @@ export class PaperComponent implements OnInit {
   @Input() justifyContent:string
   @Input() flexDirection:string
 
-  theme:ITheme
+  theme:SJssTheme
   constructor(private js:SuperJssService) {
     this.theme = js.theme;
     this.bgColor = this.theme.palette.primary.main
